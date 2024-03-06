@@ -11,7 +11,6 @@ namespace DB {
                 $config['user'],
                 $config['password']
             );
-            print_r($config);
         }
 
         public static function getInstance(array $config){

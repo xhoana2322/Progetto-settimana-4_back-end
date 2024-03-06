@@ -16,30 +16,22 @@ session_start();
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
     <meta name="generator" content="Hugo 0.122.0" />
     <title>Login - Progetto Settimana 16</title>
-
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/" />
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <meta name="theme-color" content="#712cf9" />
-
     <link rel="stylesheet" href="css/style.css" />
     <link href="https://getbootstrap.com/docs/5.3/examples/sign-in/sign-in.css" rel="stylesheet" />
 </head>
 
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
-
-
     <main class="form-signin w-100 m-auto">
         <form action="controller.php" method="post">
             <h1 class="h3 mb-3 fw-normal">LOGIN</h1>
 
             <div class="form-floating">
                 <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email"
-                    value="m.rossi@example.com" />
+                    value="p.kmer@example.com" />
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">
