@@ -77,33 +77,35 @@ if(!isset($_SESSION['userLogin']) && isset($_COOKIE["useremail"]) && isset($_COO
 </head>
 
 <body>
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand">PS16</a>
-            <form class="d-flex" role="search">
-                <a class="nav-link active ms-3" aria-current="page" href="logout.php">Logout</a>
-            </form>
-        </div>
-    </nav>
-    <h1 class="text-center my-4">Pannello di amministrazione</h1>
-    <div class="d-flex justify-content-center my-4">
+    <header>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand">PS16</a>
+                <form class="d-flex" role="search">
+                    <a class="nav-link active ms-3" aria-current="page" href="logout.php">Logout</a>
+                </form>
+            </div>
+        </nav>
+    </header>
 
-        <a href="create.php" class="btn btn-success w-25" data-bs-toggle="modal" data-bs-target="#creaUtente">
-            Aggiungi utenti
-        </a>
-
+    <div class="hero d-flex justify-content-center align-items-center flex-column mt-3 mb-5">
+        <h1 class="my-3">Admin Dashboard</h1>
+        <p class="text-center"> <span class="fw-semibold fs-5">Welcome to Admin Control Panel. </span> <br>Manage and protect sensitive data effectively.<br>Total monitoring, security and control at the click of a button.</p>
+        <a href="create.php" class="btn btn-success w-25" data-bs-toggle="modal" data-bs-target="#creaUtente">Aggiungi utenti</a>
     </div>
+    
+    
     <div class="container">
-        <table class="table table-striped table-hover">
+        <table class="table table-bordered">
             <thead>
-                <tr>
+                <tr class="table-success">
                     <th scope="col">ID</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Cognome</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Surname</th>
                     <th scope="col">Email</th>
                     <th scope="col">Password</th>
                     <th scope="col">Admin</th>
-                    <th scope="col" class="text-center">Azioni</th>
+                    <th scope="col" class="text-center">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -132,7 +134,7 @@ if(!isset($_SESSION['userLogin']) && isset($_COOKIE["useremail"]) && isset($_COO
                                 <?php if ($record["admin"] == 0): ?>
                                     <p> No </p>
                                 <?php else: ?>
-                                    <p> Si </p>
+                                    <p> Yes </p>
                                 <?php endif; ?>
                             </td>
                             <td class="d-flex">
@@ -165,12 +167,12 @@ if(!isset($_SESSION['userLogin']) && isset($_COOKIE["useremail"]) && isset($_COO
                 <div class="modal-body">
                     <form method="post" action="index.php">
                         <div class="mb-3">
-                            <label for="firstname" class="form-label">Nome</label>
+                            <label for="firstname" class="form-label">Name</label>
                             <input name="firstname" type="text" class="form-control" id="firstname"
                                 aria-describedby="firstname">
                         </div>
                         <div class="mb-3">
-                            <label for="lastname" class="form-label">Cognome</label>
+                            <label for="lastname" class="form-label">Surname</label>
                             <input name="lastname" type="text" class="form-control" id="lastname"
                                 aria-describedby="lastname">
                         </div>
@@ -188,8 +190,8 @@ if(!isset($_SESSION['userLogin']) && isset($_COOKIE["useremail"]) && isset($_COO
                                 min="0" max="1">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                            <button type="submit" class="btn btn-primary">Crea</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Create</button>
                         </div>
                     </form>
                 </div>
@@ -209,12 +211,12 @@ if(!isset($_SESSION['userLogin']) && isset($_COOKIE["useremail"]) && isset($_COO
                 <div class="modal-body">
                     <form method="post" action="index.php">
                         <div class="mb-3">
-                            <label for="firstname" class="form-label">Nome</label>
+                            <label for="firstname" class="form-label">Name</label>
                             <input name="firstname" type="text" class="form-control" id="firstname"
                                 aria-describedby="firstname">
                         </div>
                         <div class="mb-3">
-                            <label for="lastname" class="form-label">Cognome</label>
+                            <label for="lastname" class="form-label">Surname</label>
                             <input name="lastname" type="text" class="form-control" id="lastname"
                                 aria-describedby="lastname">
                         </div>
@@ -232,54 +234,9 @@ if(!isset($_SESSION['userLogin']) && isset($_COOKIE["useremail"]) && isset($_COO
                                 min="0" max="1">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <a href="index.php?action=edit&id=<?= $record["id"] ?>" type="submit"
-                                class="btn btn-primary">Modifica</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- modale per l'eliminazione -->
-    <div class="modal fade" id="modificaUtente" tabindex="-1" aria-labelledby="modificaUtenteLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="eliminazioneUtenteLabel">Elimina Utente</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form method="post" action="index.php">
-                        <div class="mb-3">
-                            <label for="firstname" class="form-label">Nome</label>
-                            <input name="firstname" type="text" class="form-control" id="firstname"
-                                aria-describedby="firstname">
-                        </div>
-                        <div class="mb-3">
-                            <label for="lastname" class="form-label">Cognome</label>
-                            <input name="lastname" type="text" class="form-control" id="lastname"
-                                aria-describedby="lastname">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input name="password" type="password" class="form-control" id="password">
-                        </div>
-                        <div class="mb-3">
-                            <label for="admin" class="form-label">Admin</label>
-                            <input name="admin" type="number" class="form-control" id="admin" aria-describedby="admin"
-                                min="0" max="1">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                            <a href="index.php?action=edit&id=<?= $record["id"] ?>" type="submit"
-                                class="btn btn-primary">Modifica</a>
+                                class="btn btn-primary">Save changes</a>
                         </div>
                     </form>
                 </div>
