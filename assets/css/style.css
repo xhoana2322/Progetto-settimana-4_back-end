@@ -3,4 +3,117 @@ body {
     height: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
+    box-sizing: border-box !important;
+    font-family: "Montserrat", sans-serif !important;
+    background-color: #15171a !important;
+}
+
+/* index.php */
+.navbar {
+    background-color: #15171a !important;
+    border-bottom: 1px solid #ffffff38 !important;
+}
+
+
+
+.hero {
+    width: 50% !important;
+    background-color: #212529 !important;
+    padding: 3rem !important;
+    border-radius: 15px !important;
+}
+
+.btn-add-users {
+    width: 50% !important;
+    padding: 0.5rem !important;
+    margin-top: 1rem !important;
+    border-radius: 50px !important;
+}
+
+.table {
+    margin-top: 3rem !important;
+    max-width: 80% !important;
+    border-radius: 15px !important;
+    overflow: hidden !important;
+    background-color: #0a0a0a !important;
+}
+
+.table thead {
+    border-bottom: 1px solid #ffffff38 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.table td {
+    padding: 0.4rem !important;
+}
+
+.td-password .table {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a {
+    color: white !important;
+}
+
+i {
+    color: rgb(0, 0, 0) !important;
+}
+
+.btn-table a {
+    border-radius: 13px !important;
+    padding: 0.4rem 0.9rem !important;
+}
+
+/* login */
+.body-login {
+    height: 100dvh !important;
+}
+
+.form-signin {
+    width: 40% !important;
+    padding: 6rem 9rem !important;
+    border-radius: 15px !important;
+    overflow: hidden !important;
+    background-color: #0a0a0a !important;
+    align-self: center !important;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;     
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+.form-signin input[type="password"]:active, 
+.form-signin input[type="password"]:focus,
+.form-signin input[type="email"]:active, 
+.form-signin input[type="email"]:focus {
+    box-shadow: none !important;
+    border-color: rgb(230, 230, 230) !important;
+}
+
+.btn-login {
+    border-radius: 50px !important;   
+}
+
+/* modal */
+.modal-content {
+    background-color: #212529 !important;
+    color: white !important;
 }

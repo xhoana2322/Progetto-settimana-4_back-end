@@ -69,6 +69,9 @@ if(!isset($_SESSION['userLogin']) && isset($_COOKIE["useremail"]) && isset($_COO
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Progetto Settimana 16</title>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -78,8 +81,8 @@ if(!isset($_SESSION['userLogin']) && isset($_COOKIE["useremail"]) && isset($_COO
 
 <body>
     <header>
-        <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
+        <nav class="navbar">
+            <div class="container">
                 <a class="navbar-brand">PS16</a>
                 <form class="d-flex" role="search">
                     <a class="nav-link active ms-3" aria-current="page" href="logout.php">Logout</a>
@@ -88,67 +91,69 @@ if(!isset($_SESSION['userLogin']) && isset($_COOKIE["useremail"]) && isset($_COO
         </nav>
     </header>
 
-    <div class="hero d-flex justify-content-center align-items-center flex-column mt-3 mb-5">
+    <div class="hero d-flex justify-content-center align-items-center flex-column mt-3 mb-5 mx-auto">
         <h1 class="my-3">Admin Dashboard</h1>
         <p class="text-center"> <span class="fw-semibold fs-5">Welcome to Admin Control Panel. </span> <br>Manage and protect sensitive data effectively.<br>Total monitoring, security and control at the click of a button.</p>
-        <a href="create.php" class="btn btn-success w-25" data-bs-toggle="modal" data-bs-target="#creaUtente">Aggiungi utenti</a>
+        <a href="create.php" class="btn-add-users btn btn-success" data-bs-toggle="modal" data-bs-target="#creaUtente">Aggiungi utenti</a>
     </div>
     
     
     <div class="container">
-        <table class="table table-bordered">
-            <thead>
-                <tr class="table-success">
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Surname</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Password</th>
-                    <th scope="col">Admin</th>
-                    <th scope="col" class="text-center">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
+        <!-- <div class="table-responsive"> -->
+            <table class="table table-dark table-hover table-borderless mx-auto">
+                <thead>
+                    <tr>
+                        <th scope="col-1">ID</th>
+                        <th scope="col-2">Name</th>
+                        <th scope="col-2">Surname</th>
+                        <th scope="col-2">Email</th>
+                        <th scope="col-2">Password</th>
+                        <th scope="col-1">Admin</th>
+                        <th scope="col-2" class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                <?php
-                if ($res) {
-                    foreach ($res as $record) {
-                        ?>
-                        <tr>
-                            <td>
-                                <?= $record["id"] ?>
-                            </td>
-                            <td>
-                                <?= $record["firstname"] ?>
-                            </td>
-                            <td>
-                                <?= $record["lastname"] ?>
-                            </td>
-                            <td>
-                                <?= $record["email"] ?>
-                            </td>
-                            <td>
-                                <?= $record["password"] ?>
-                            </td>
-                            <td class="text-center align-middle">
-                                <?php if ($record["admin"] == 0): ?>
-                                    <p> No </p>
-                                <?php else: ?>
-                                    <p> Yes </p>
-                                <?php endif; ?>
-                            </td>
-                            <td class="d-flex">
-                                <a href="index.php?action=edit&id=<?= $record["id"] ?>" class="btn btn-warning"
-                                    data-bs-toggle="modal" data-bs-target="#modificaUtente"><i class="bi bi-pen-fill"></i></a>
-                                <a href="index.php?action=delete&id=<?= $record["id"] ?>" class="btn btn-danger ms-2"><i class="bi bi-trash3-fill text-black"></i></a>
-                            </td>
-                        </tr>
-                        <?php
+                    <?php
+                    if ($res) {
+                        foreach ($res as $record) {
+                            ?>
+                            <tr>
+                                <td>
+                                    <?= $record["id"] ?>
+                                </td>
+                                <td>
+                                    <?= $record["firstname"] ?>
+                                </td>
+                                <td>
+                                    <?= $record["lastname"] ?>
+                                </td>
+                                <td>
+                                    <?= $record["email"] ?>
+                                </td>
+                                <td class='td-password'>
+                                    <?= $record["password"] ?>
+                                </td>
+                                <td class="text-center align-middle">
+                                    <?php if ($record["admin"] == 0): ?>
+                                        <p> No </p>
+                                    <?php else: ?>
+                                        <p> Yes </p>
+                                    <?php endif; ?>
+                                </td>
+                                <td class="d-flex btn-table">
+                                    <a href="index.php?action=edit&id=<?= $record["id"] ?>" class="btn btn-warning"
+                                        data-bs-toggle="modal" data-bs-target="#modificaUtente"><i class="bi bi-pen-fill"></i></a>
+                                    <a href="index.php?action=delete&id=<?= $record["id"] ?>" class="btn btn-danger ms-2"><i class="bi bi-trash3-fill"></i></a>
+                                </td>
+                            </tr>
+                            <?php
+                        }
                     }
-                }
-                ?>
-            </tbody>
-        </table>
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
